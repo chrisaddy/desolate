@@ -1,0 +1,9 @@
+project:
+  type: website
+  output-dir: docs
+execute:
+  execute-dir: examples
+  include-in-header: |
+    <script>
+    module.paths.push('src');
+    </script>

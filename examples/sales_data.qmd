@@ -1,0 +1,37 @@
+---
+title: "Sales Data"
+format: html
+---
+
+```{python}
+import kagglehub
+import polars as pl
+from pathlib import Path
+
+from desolate import DesolationForest
+
+path = Path(kagglehub.dataset_download("thedevastator/unlock-profits-with-e-commerce-sales-data"))
+
+data = (
+    pl.scan_csv(path / "Amazon Sale Report.csv")
+    .select([
+        pl.col("Date"),
+        pl.col("Fulfilment"),
+        pl.col("Style"),
+        pl.col("SKU"),
+        pl.col("Category"),
+        pl.col("Size"),
+        pl.col("Courier Status"),
+        pl.col("Qty"),
+        pl.col("Amount"),
+        pl.col("ship-city"),
+        pl.col("ship-state"),
+        pl.col("ship-postal-code"),
+        pl.col("ship-country"),
+        pl.col("promotion-ids"),
+        # pl.col("B2B"),
+    ])
+).collect()
+
+data.head()
+```
