@@ -1,0 +1,16 @@
+[project]
+name = "desolate"
+version = "0.1.0"
+description = "Detecting Anomalies with Censors"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter[lab]>=1.1.1",
+    "kagglehub>=0.3.6",
+    "polars>=1.20.0",
+]

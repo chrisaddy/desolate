@@ -1,5 +1,5 @@
 # desolate
-# Desolate: (De)tect anomalies with Iso(lation) forests and survival analysis
+# Desolation: (De)tect anomalies with I(solation) forests and survival analysis
 
 [![PyPI version](https://badge.fury.io/py/desolate.svg)](https://badge.fury.io/py/desolate)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -194,3 +194,18 @@ If you use Desolate in your research, please cite:
 
 1. Liu, F. T., Ting, K. M., & Zhou, Z. H. (2008). Isolation forest. In *2008 Eighth IEEE International Conference on Data Mining*
 2. Kaplan, E. L., & Meier, P. (1958). Nonparametric estimation from incomplete observations. *Journal of the American Statistical Association*
+
+
+# TODO: Recommendations for Enhancement:
+# Incorporate Isolation Forest Scores into Survival Analysis (Approach B):
+# Current Status: You've added survival probabilities to the Isolation Forest's feature space.
+# Enhancement: Consider the reverse: use the anomaly scores from the Isolation Forest as features in a survival analysis model. This bidirectional integration can provide deeper insights into how anomalies influence survival outcomes.
+
+# TODO: Implement Tree-Based Isolation in Survival Data (Approach C):
+# Concept: Develop a tree-based model that isolates subpopulations within your survival data, focusing on identifying groups with distinct survival characteristics.
+# Implementation: Adapt the Isolation Forest algorithm to account for censored data, creating splits that maximize differences in survival distributions between branches.
+
+# TODO: Outlier Filtering in Survival Analysis (Approach A):
+# Current Status: It's unclear if outlier filtering is applied before survival analysis in your workflow.
+# Enhancement: Use the Isolation Forest to detect and remove outliers prior to conducting survival analysis. This preprocessing step can lead to more accurate survival models by mitigating the influence of anomalous data points.
+
