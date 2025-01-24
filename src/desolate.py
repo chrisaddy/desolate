@@ -1,6 +1,6 @@
 import numpy as np
 from typing import Optional, Tuple, List, Union
-from desolate.kaplan_meier import KaplanMeier
+from kaplan_meier import KaplanMeier
 
 
 class IsolationTree:

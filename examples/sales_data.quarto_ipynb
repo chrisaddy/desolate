@@ -9,7 +9,7 @@
         "format: html\n",
         "---"
       ],
-      "id": "5046f2ee"
+      "id": "6a6910bb"
     },
     {
       "cell_type": "code",
@@ -46,7 +46,7 @@
         "\n",
         "data.head()"
       ],
-      "id": "cf7746a3",
+      "id": "9330aa13",
       "execution_count": null,
       "outputs": []
     },
@@ -56,7 +56,7 @@
       "source": [
         "forest = DesolationForest()"
       ],
-      "id": "7d4c7bcd",
+      "id": "78939fd1",
       "execution_count": null,
       "outputs": []
     }

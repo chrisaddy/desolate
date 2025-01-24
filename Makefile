@@ -1,7 +1,10 @@
 .PHONY: docs
 
-install:
+clean:
 	rm -rf dist/ src/desolate.egg-info
+
+install: clean
+	uv pip uninstall .
 	uv pip install .
 
 
@@ -10,8 +13,7 @@ docs:
 	uv run quarto render
 
 
-publish:
-	rm -rf dist/ src/desolate.egg-info
+publish: install
 	uv build
 	twine upload dist/*
 	rm -rf dist/ desolate.egg-info
