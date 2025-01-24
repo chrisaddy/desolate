@@ -1,5 +1,10 @@
 import numpy as np
+<<<<<<< HEAD
 from typing import Optional, Tuple, List, Union
+=======
+from typing import Optional, Tuple, List, Union
+from .kaplan_meier import KaplanMeier
+>>>>>>> Snippet
 
 
 class IsolationTree:

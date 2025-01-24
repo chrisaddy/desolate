@@ -1,0 +1,74 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Sales Data\"\n",
+        "format: html\n",
+        "---"
+      ],
+      "id": "919506ce"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import kagglehub\n",
+        "import polars as pl\n",
+        "from pathlib import Path\n",
+        "\n",
+        "from desolate import DesolationForest\n",
+        "\n",
+        "path = Path(kagglehub.dataset_download(\"thedevastator/unlock-profits-with-e-commerce-sales-data\"))\n",
+        "\n",
+        "data = (\n",
+        "    pl.scan_csv(path / \"Amazon Sale Report.csv\")\n",
+        "    .select([\n",
+        "        pl.col(\"Date\"),\n",
+        "        pl.col(\"Fulfilment\"),\n",
+        "        pl.col(\"Style\"),\n",
+        "        pl.col(\"SKU\"),\n",
+        "        pl.col(\"Category\"),\n",
+        "        pl.col(\"Size\"),\n",
+        "        pl.col(\"Courier Status\"),\n",
+        "        pl.col(\"Qty\"),\n",
+        "        pl.col(\"Amount\"),\n",
+        "        pl.col(\"ship-city\"),\n",
+        "        pl.col(\"ship-state\"),\n",
+        "        pl.col(\"ship-postal-code\"),\n",
+        "        pl.col(\"ship-country\"),\n",
+        "        pl.col(\"promotion-ids\"),\n",
+        "        # pl.col(\"B2B\"),\n",
+        "    ])\n",
+        ").collect()\n",
+        "\n",
+        "data.head()"
+      ],
+      "id": "839cfce6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "forest = DesolationForest()"
+      ],
+      "id": "c6e212b0",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/caddy/projects/desolate/.venv/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
