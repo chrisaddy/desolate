@@ -1,9 +1,22 @@
 project:
-  type: website
   output-dir: docs
+  type: website
 execute:
   execute-dir: examples
   include-in-header: |
     <script>
     module.paths.push('src');
     </script>
+website:
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - text: "examples"
+        menu:
+          - examples/sales_data.qmd
+    right:
+      - icon: github
+        href: https://github.com/pocketsizefund/desolate
+

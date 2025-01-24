@@ -1,6 +1,6 @@
 [project]
 name = "desolate"
-version = "0.0.1"
+version = "0.0.2"
 description = "Detecting Anomalies with Censors"
 readme = "README.md"
 requires-python = ">=3.12"

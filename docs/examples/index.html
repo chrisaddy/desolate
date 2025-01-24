@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sales Data</title>
+<title>index</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,44 +20,10 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -100,9 +66,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -159,190 +122,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Sales Data</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<section id="hello" class="level1">
+<h1>Hello</h1>
 
 
-</header>
-
-
-<div id="c1a1745e" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> kagglehub</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> desolate <span class="im">import</span> DesolationForest</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> Path(kagglehub.dataset_download(<span class="st">"thedevastator/unlock-profits-with-e-commerce-sales-data"</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> (</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    pl.scan_csv(path <span class="op">/</span> <span class="st">"Amazon Sale Report.csv"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    .select([</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Date"</span>),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Fulfilment"</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Style"</span>),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"SKU"</span>),</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Category"</span>),</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Size"</span>),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Courier Status"</span>),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Qty"</span>),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"Amount"</span>),</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"ship-city"</span>),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"ship-state"</span>),</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"ship-postal-code"</span>),</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"ship-country"</span>),</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"promotion-ids"</span>),</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># pl.col("B2B"),</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    ])</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>).collect()</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (5, 14)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th">Fulfilment</th>
-<th data-quarto-table-cell-role="th">Style</th>
-<th data-quarto-table-cell-role="th">SKU</th>
-<th data-quarto-table-cell-role="th">Category</th>
-<th data-quarto-table-cell-role="th">Size</th>
-<th data-quarto-table-cell-role="th">Courier Status</th>
-<th data-quarto-table-cell-role="th">Qty</th>
-<th data-quarto-table-cell-role="th">Amount</th>
-<th data-quarto-table-cell-role="th">ship-city</th>
-<th data-quarto-table-cell-role="th">ship-state</th>
-<th data-quarto-table-cell-role="th">ship-postal-code</th>
-<th data-quarto-table-cell-role="th">ship-country</th>
-<th data-quarto-table-cell-role="th">promotion-ids</th>
-</tr>
-<tr class="even">
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>i64</th>
-<th>f64</th>
-<th>str</th>
-<th>str</th>
-<th>f64</th>
-<th>str</th>
-<th>str</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>"04-30-22"</td>
-<td>"Merchant"</td>
-<td>"SET389"</td>
-<td>"SET389-KR-NP-S"</td>
-<td>"Set"</td>
-<td>"S"</td>
-<td>null</td>
-<td>0</td>
-<td>647.62</td>
-<td>"MUMBAI"</td>
-<td>"MAHARASHTRA"</td>
-<td>400081.0</td>
-<td>"IN"</td>
-<td>null</td>
-</tr>
-<tr class="even">
-<td>"04-30-22"</td>
-<td>"Merchant"</td>
-<td>"JNE3781"</td>
-<td>"JNE3781-KR-XXXL"</td>
-<td>"kurta"</td>
-<td>"3XL"</td>
-<td>"Shipped"</td>
-<td>1</td>
-<td>406.0</td>
-<td>"BENGALURU"</td>
-<td>"KARNATAKA"</td>
-<td>560085.0</td>
-<td>"IN"</td>
-<td>"Amazon PLCC Free-Financing Uni…</td>
-</tr>
-<tr class="odd">
-<td>"04-30-22"</td>
-<td>"Amazon"</td>
-<td>"JNE3371"</td>
-<td>"JNE3371-KR-XL"</td>
-<td>"kurta"</td>
-<td>"XL"</td>
-<td>"Shipped"</td>
-<td>1</td>
-<td>329.0</td>
-<td>"NAVI MUMBAI"</td>
-<td>"MAHARASHTRA"</td>
-<td>410210.0</td>
-<td>"IN"</td>
-<td>"IN Core Free Shipping 2015/04/…</td>
-</tr>
-<tr class="even">
-<td>"04-30-22"</td>
-<td>"Merchant"</td>
-<td>"J0341"</td>
-<td>"J0341-DR-L"</td>
-<td>"Western Dress"</td>
-<td>"L"</td>
-<td>null</td>
-<td>0</td>
-<td>753.33</td>
-<td>"PUDUCHERRY"</td>
-<td>"PUDUCHERRY"</td>
-<td>605008.0</td>
-<td>"IN"</td>
-<td>null</td>
-</tr>
-<tr class="odd">
-<td>"04-30-22"</td>
-<td>"Amazon"</td>
-<td>"JNE3671"</td>
-<td>"JNE3671-TU-XXXL"</td>
-<td>"Top"</td>
-<td>"3XL"</td>
-<td>"Shipped"</td>
-<td>1</td>
-<td>574.0</td>
-<td>"CHENNAI"</td>
-<td>"TAMIL NADU"</td>
-<td>600073.0</td>
-<td>"IN"</td>
-<td>null</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
