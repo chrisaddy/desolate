@@ -10,12 +10,12 @@ execute:
 website:
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-      - text: "examples"
+      - href: examples/index.qmd
+        text: desolate
+      - text: examples
         menu:
-          - examples/sales_data.qmd
+          - href: examples/sales_data.qmd
+            text: sales data
     right:
       - icon: github
         href: https://github.com/pocketsizefund/desolate
